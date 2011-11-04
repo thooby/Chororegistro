@@ -1,0 +1,9 @@
+<h1>Editing vive</h1>
+
+<% form_tag :action => 'update', :id => @vive %>
+  <%= render :partial => "form" %>
+  <%= submit_tag "Edit" %>
+<% end   %>
+
+<%= link_to 'Show', :action => 'show', :id => @vive %> |
+<%= link_to 'Back', :action => 'list' %>

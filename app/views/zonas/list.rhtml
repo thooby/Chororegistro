@@ -1,0 +1,25 @@
+
+<h1>Lista de  zonas y comunidades</h1>
+<%= render :partial => "columnas" %>
+<div id="cuerpo">
+<table>
+  <tr>
+    <th>Zonas o comunidades</th>
+  </tr>
+  
+<% for zona in @zonas %>
+  <tr>
+  <% for column in Zona.content_columns %>
+    <td><%=h zona.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Mostrar', :action => 'show', :id => zona %></td>
+    <td><%= link_to 'Corregir', :action => 'edit', :id => zona %></td>
+    <td><%= link_to 'Eliminar', {:action => 'destroy', :id => zona}, :confirm => "¿Está Vd. seguro?" %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<%= will_paginate @zonas %>
+<br />
+
+<%= link_to 'Añadir zona o comunidad', :action => 'new' %>

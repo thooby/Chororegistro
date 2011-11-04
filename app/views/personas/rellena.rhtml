@@ -1,0 +1,10 @@
+<h1>Añadir  persona</h1>
+<%= render :partial => "columnas" %>
+<div id="cuerpo">
+<% form_tag :action => 'create' do %>
+  <%= render :partial => "form2" %>
+  <%= submit_tag "Crear" %>
+<% end %>
+</div>
+
+<%= link_to 'Listar', :action => 'list' %>

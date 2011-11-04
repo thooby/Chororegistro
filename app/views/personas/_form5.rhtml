@@ -1,0 +1,7 @@
+<strong>Buscar personas pertenecientes a una zona o comunidad</strong><br />
+<%= 
+@zonas= Zona.find :all, :order => :ubicacion
+	  f.collection_select(:zona_id, @zonas, :id, :ubicacion ) %>
+        x%= @zonas = Zona.find(:all).map {|u| [u.ubicacion.sort, u.id]}
+          select( :zona, :id, @zonas, :order => :zona)
+         %>

@@ -1,0 +1,11 @@
+<h1>Corrigiendo el nombre de zona o comunidad</h1>
+<%= render :partial => "columnas" %>
+<div id="cuerpo">
+
+<% form_tag :action => 'update', :id => @zona %>
+  <%= render :partial => "form" %>
+  <%= submit_tag "Edit" %>
+<% end   %>
+</div>
+<%= link_to 'Mostrar', :action => 'show', :id => @zona %> |
+<%= link_to 'Listar zonas', :action => 'List' %>

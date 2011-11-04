@@ -1,0 +1,13 @@
+
+  <tr class="<%= plist_stripes_counter.modulo(2).nonzero?  ? "dk_gray" : "lt_gray" %>">
+    <td><%=h plist_stripes["nombre1"] %></td>
+    <td><%=h plist_stripes["nombre2"] %></td>
+    <td><%=h plist_stripes["apellido1"] %></td>
+    <td><%=h plist_stripes["apellido2"] %></td>
+    <td><%=h plist_stripes["direccion"] %></td>
+    <td><%=h plist_stripes["cedula"] %></td>
+    <td><%=h plist_stripes["fechanac"] %></td>
+    <td><%= link_to 'Mostrar', :controller => 'votantes', :action => 'show', :id => plist_stripes %></td>
+    <td><%= link_to 'Editar', :controller => 'votantes', :action => 'edit', :id => plist_stripes %></td>
+    <td><%= link_to 'Eliminar', {:controller => 'votantes', :action => 'destroy', :id => plist_stripes}, :confirm => "¿Está Vd. seguro?" %></td>
+  </tr>

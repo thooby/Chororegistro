@@ -1,0 +1,10 @@
+<h1>Ficha</h1>
+<%= render :partial => "columnas" %>
+<div id="cuerpo">
+<br /><strong>Nombre:</strong> <%=h @elegida2["nombre"] %>
+</div>
+<p><%= link_to 'Corregir', :action => 'edit', :id => @elegida2 %> |
+<%= link_to 'Añadir otra elegida2', :action => 'rellena' %>
+<%= link_to 'Lista', :action => 'list' %>
+
+

@@ -1,0 +1,26 @@
+<h1>Búsquedas</h1>
+<div class="limpia"></div>
+<%= render :partial => "columnas" %>
+<div class="buscar2">
+<% form_tag :action => 'buscar' do %>
+  <%= render :partial => "form3" %>
+    <%= submit_tag "Buscar por nombre y apellidos" %>
+    <% end %>
+<% form_tag :action => 'buscar_acta' do %>
+  <%= render :partial => "form4" %>
+    <%= submit_tag "Buscar por número de acta" %>
+    <% end %>
+
+    </div> 
+<div class="limpia"></div>
+<% form_for :persona, :url => {:action => 'buscar_zona'} do |f| %>
+<strong>Buscar personas pertenecientes a una zona o comunidad</strong><br />
+<%=
+@zonas= Zona.find :all, :order => :ubicacion
+          f.collection_select(:zona_id, @zonas, :id, :ubicacion ) %>
+    <%= submit_tag "Buscar por zona" %>
+    <% end %>
+    </div>
+<div class="limpia"></div>
+<br /><a href="/index.html">Inicio</a>
+<hr />

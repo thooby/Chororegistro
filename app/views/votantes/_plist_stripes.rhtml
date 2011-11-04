@@ -1,0 +1,14 @@
+
+  <tr class="<%= plist_stripes_counter.modulo(2).nonzero?  ? "dk_gray" : "lt_gray" %>">
+    <td><%=h plist_stripes["nombre"] %></td>
+    <td><%=h plist_stripes["apellido1"] %></td>
+    <td><%=h plist_stripes["apellido2"] %></td>
+    <td><%=h plist_stripes["tomo"] %></td>
+    <td><%=h plist_stripes["acta"] %></td>
+    <td><%=h plist_stripes["folio"] %></td>
+    <td><%=h Zona.find_by_id( plist_stripes["zona_id"])['ubicacion'] %></td>
+    <td><%=h Zona.find_by_id( plist_stripes["zona_id"])['barrio'] %></td>
+    <td><%= link_to 'Mostrar', :controller => 'personas', :action => 'show',:tipoorden =>@tipoorden, :id => plist_stripes %></td>
+    <td><%= link_to 'Editar', :controller => 'personas', :action => 'edit', :tipoorden =>@tipoorden, :id => plist_stripes %></td>
+    <td><%= link_to 'Eliminar', {:controller => 'personas', :action => 'destroy', :id => plist_stripes}, :confirm => "¿Está Vd. seguro?" %></td>
+  </tr>

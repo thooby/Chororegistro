@@ -1,0 +1,47 @@
+<% @heading = "Lista de personas"  %>
+<div class="buscar">
+  <% form_tag :action => 'buscar' do %>
+    <%= render :partial => "form3" %>
+    <%= submit_tag "buscar" %>
+  <% end %>  
+</div>
+<% if @tipoorden == "ape" %>
+  <% for i in 0..25 %>
+     <%= link_to @alfaorig[i], { :page => @alfabeto[i] } if @alfabeto[i] %>
+  <% end %>
+<% elsif @tipoorden == "tom" %>
+  <strong>Tomos: </strong>
+  <% for i in 0..@ntomo.length %>
+     <%= link_to @ntomoori[i], { :page => @ntomo[i] } if @ntomo[i] %>
+  <% end %>
+<% elsif @tipoorden == "zon" %>
+  <% for i in 0..25 %>
+     <%= link_to @alfaorig[i], { :page => @alfabeto[i] } if @alfabeto[i] %>
+  <% end %>
+<% end %>
+
+<table class="limpia">
+  <tr>
+    <th>Nombre</th>
+    <th><%= link_to "Apellido 1", {:action => "list"} %></th>
+    <th>Apellido 2</th>
+    <th>Tomo</th>
+    <th><%= link_to "Acta", {:action => "list_by_acta"} %></th>
+    <th>Folio</th>
+    <th><%= link_to "Zona/Comunidad", {:action => "list_by_zona"} %> </th >
+  </tr>
+  <%= render_collection_of_partials "list_stripes", @personas %>   
+</table>
+<div class="buscar">
+  <% form_tag :action => 'buscar' do %>
+    <%= render :partial => "form3" %>
+    <%= submit_tag "buscar" %>
+  <% end   %>
+  <% form_tag :action => 'buscar_acta' do %>
+    <%= render :partial => "form4" %>
+    <%= submit_tag "buscar" %>
+  <% end   %> 
+</div>
+<%= will_paginate @personas %>
+<a href="/index.html">Inicio</a> / 
+<%= link_to 'Nueva persona', :action => 'rellena' %>

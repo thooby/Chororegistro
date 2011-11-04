@@ -1,0 +1,8 @@
+<% for column in Indigena.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @indigena.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @indigena %> |
+<%= link_to 'Back', :action => 'list' %>

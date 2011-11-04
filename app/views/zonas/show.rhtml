@@ -1,0 +1,15 @@
+<h1>Mostrar nombre de zona</h1>
+
+
+<%= render :partial => "columnas" %>
+<div id="cuerpo">
+<% for column in Zona.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @zona.send(column.name) %>
+</p>
+<% end %>
+</div>
+<div class="limpia">
+<%= link_to 'Corregir', :action => 'edit', :id => @zona %> |
+<%= link_to 'Listar zonas', :action => 'list' %>
+</div>

@@ -1,0 +1,27 @@
+<h1>Listing zonas</h1>
+
+<table>
+  <tr>
+<% for column in Zona.content_columns %>
+    <th><%= column.human_name %></th>
+<% end %>
+  </tr>
+  
+<% for zona in @zonas %>
+  <tr>
+  <% for column in Zona.content_columns %>
+    <td><%=h zona.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => zona %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => zona %></td>
+    <td><%= link_to 'Destroy', {:action => 'destroy', :id => zona}, :confirm => "Are you sure?" %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to "Previous page", { :page => @zona_pages.current.previous } if @zona_pages.current.previous %>
+<%= link_to "Next page", { :page => @zona_pages.current.next } if @zona_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New zona', :action => 'new' %>

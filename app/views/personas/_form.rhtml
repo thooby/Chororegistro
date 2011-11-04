@@ -1,0 +1,39 @@
+<%= error_messages_for 'persona' %>
+
+<!--[form:persona]-->
+<p><label for="persona_nombre">Nombre:</label>
+<%= text_field 'persona', 'nombre'  %><br />
+<label for="persona_apellido1">Apellido 1:</label>
+<%= text_field 'persona', 'apellido1'  %><br />
+<label for="persona_apellido2">Apellido 2:</label>
+<%= text_field 'persona', 'apellido2'  %>
+<label for="persona_cedula">Cedula</label>
+<%= text_field 'persona', 'cedula', "size"=>10, "maxlength"=>10 %></p>
+
+<p><label for="persona_dirpost">Direccion</label>
+<%= text_field 'persona', 'dirpost'  %><br />
+<label for="persona_poblacion">Poblacion</label>
+<%= text_field 'persona', 'poblacion'  %>
+<label for="persona_zipcode">Codigo postal</label>
+<%= text_field 'persona', 'zipcode',  "size"=>5, "maxlength"=>5 %></p>
+
+<p><label for="persona_tomo">Tomo</label>
+<%= text_field 'persona', 'tomo'  %>
+<label for="persona_acta">Acta</label>
+<%= text_field 'persona', 'acta', "size"=>4, "maxlength"=>4 %></p>
+zona <select id="persona_zona_id" name="persona[zona_id]"> 
+        <%= options_from_collection_for_select @zonas, "id", "ubicacion", 
+@persona.zona_id %>          </select>
+<br />Vive? <select id="persona_vive_id" name="persona[vive_id]"> 
+        <%= options_from_collection_for_select @vives, "id", "situacion", 
+@persona.vive_id %>          </select>
+<br />Indigena? <select id="persona_indigena_id" name="persona[indigena_id]"> 
+        <%= options_from_collection_for_select @indigenas, "id", "situacion", 
+@persona.indigena_id %>          </select>
+<p><label for="persona_observaciones">Observaciones</label><br/>
+<%= text_area 'persona', 'observaciones',  'rows'=>5 %></p>
+
+<%=hidden_field_tag("persona_lock_version" "lock_version") %>
+
+<!--[eoform:persona]-->
+

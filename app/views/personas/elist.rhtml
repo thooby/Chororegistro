@@ -1,0 +1,40 @@
+<% @heading = "Lista de personas"  %>
+<% if @flexi %>
+Busqueda flexible
+<% else %>
+Busqueda estricta
+<% end %>
+<%=h @numero  %>
+<div class="buscar">
+<% form_tag :action => 'buscar' do %>
+  <%= render :partial => "form3" %>
+    <%= submit_tag "buscar" %>
+    <% end %>
+<% form_tag :action => 'buscar_acta' do  %>
+  <%= render :partial => "form4" %>
+    <%= submit_tag "buscar" %>
+    <% end %>
+    </div>
+<%= @zonaselegidas %>
+<% if @elegidas != [] %>
+<table class="limpia">
+  
+  <tr>
+  <th>Nombre</th>
+  <th><%= link_to "Apellido 1", {:action => "list"} %></th>
+  <th>Apellido 2</th>
+  <th>Tomo</th>
+  <th><%= link_to "Acta", {:action => "list_by_acta"} %></th>
+  <th>Folio</th>
+  <th>Zona/Comunidad</th>
+  </tr>
+<%= render_collection_of_partials "list_stripes", @elegidas %>   
+</table>
+<% else %>
+   <%= "<div class='limpia2'>No ha sido encontrada ningun nombre o apellido de persona que contenga -<span class='rojo'>#{@cadena or @cadena1}</span>-</div><hr>" %>
+<% end %>
+
+<%= link_to 'Añadir nueva persona', :action => 'rellena' %>
+ / <a href="/index.html">Inicio</a> / 
+<%= link_to "Lista global", {:action => "list"} %>
+<hr />

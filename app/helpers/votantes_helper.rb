@@ -1,0 +1,2 @@
+module VotantesHelper
+end

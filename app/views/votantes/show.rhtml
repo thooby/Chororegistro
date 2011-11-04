@@ -1,0 +1,9 @@
+<% for column in Votante.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @votante.send(column.name) %>
+</p>
+<% end %>
+<%= @votante.apellido1 %> <%= @votante.apellido2 %>
+<%= link_to 'Edit', :action => 'edit', :id => @votante %> |
+<%= link_to 'Back', :action => 'list' %>
+<%= link_to 'Parecidos', :id => @votante.id,  :action => 'parecidos' %>

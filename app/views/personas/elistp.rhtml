@@ -1,0 +1,36 @@
+<% @heading = "Lista de votantes" %> 
+con los dos apellidos parecidos a los de 
+<strong>
+<%= @persona.nombre %>
+<%= @persona.apellido1 %>
+<%= @persona.apellido2 %> 
+</strong>
+<div class="buscar">
+<% form_tag :action => 'buscar' do %>
+  <%= render :partial => "form3" %>
+    <%= submit_tag "buscar" %>
+    <% end   %>
+    </div>
+<% if @elegidas != [] %>
+<table class="limpia">
+  
+  <tr>
+  <th>Nombre 1 </th>
+  <th>Nombre 2 </th>
+  <th><%= link_to "Apellido 1 ", {:action => "list"} %></th>
+  <th>Apellido 2 </th>
+  <th><%= link_to "Direccion ", {:action => "list_by_direccion"} %></th>
+  <th><%= link_to "Cédula ", {:action => "list_by_cedula"} %></th>
+  <th><%= link_to "Fecha de nacimiento ", {:action => "list_by_fechanac"} %></th>
+  </tr>
+<%= render_collection_of_partials "plist_stripes", @elegidas %>   
+</table>
+<% else %>
+   <%= "<div class='limpia2'>No ha sido encontrada ningún votante con apellidos parecidos a  
+-<span class='rojo'>#{@persona.apellido1} #{@persona.apellido2}</span>-</div><hr>" %>
+<% end %>
+
+<%= link_to 'Añadir nueva persona', :action => 'rellena' %>
+ / <a href="/index.html">Inicio</a> / 
+<%= link_to "Lista global", {:action => "list"} %>
+<hr />

@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  database: chororegistro
+  host: localhost
+  username: zubi
+
+test:
+  adapter: postgresql
+  database: chororegistro
+  host: localhost
+  username: zubi
+
+production:
+  adapter: postgresql
+  database: chororegistro
+  host: localhost
+  username: zubi

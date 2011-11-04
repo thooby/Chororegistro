@@ -1,0 +1,34 @@
+<% @heading = "Lista de Votantes"  %>
+<div class="buscar">
+  <% form_tag :action => 'buscar' do %>
+    <%= render :partial => "form3" %>
+    <%= submit_tag "buscar" %>
+  <% end   %>
+</div>
+    <% if @alfabeto %>
+    <% for i in 0..25 %>
+       <%= link_to @alfaorig[i], { :page => @alfabeto[i] } if @alfabeto[i] %>
+    <% end %>
+    <% end %>
+<table class="limpia">
+  <tr>
+  <th>Nombre 1 </th>
+  <th>Nombre 2 </th>
+  <th><%= link_to "Apellido 1 ", {:action => "list"} %></th>
+  <th>Apellido 2 </th>
+  <th><%= link_to "Direccion ", {:action => "list_by_direccion"} %></th>
+  <th><%= link_to "Cédula ", {:action => "list_by_cedula"} %></th>
+  <th><%= link_to "Fecha de nacimiento ", {:action => "list_by_fechanac"} %></th>
+  </tr>
+<% if @votantes %>
+<%= render_collection_of_partials "list_stripes", @votantes %>
+<% end %>
+</table>
+
+<% if @votantes %>
+<%= will_paginate @votantes %>
+<% end %>
+
+<br />
+
+<%= link_to 'New votante', :action => 'new' %>

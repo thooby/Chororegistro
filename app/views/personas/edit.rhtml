@@ -1,0 +1,11 @@
+<h1>Editando datos personales</h1>
+<%= render :partial => "columnas" %>
+<div id="cuerpo">
+
+<% form_tag(:action => 'update', :tipoorden => @ttipoorden, :id => @persona) do %>
+  <%= render :partial => "form2" %>
+  <%= submit_tag "Corregir" %>
+<% end   %>
+</div>
+<%= link_to 'Mostrar', :action => 'show', :id => @persona %> |
+<%= link_to 'Atras', :action => 'list' %>

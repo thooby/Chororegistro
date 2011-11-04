@@ -1,0 +1,14 @@
+
+  <tr class="<%= list_stripes_counter.modulo(2).nonzero?  ? "dk_gray" : "lt_gray" %>">
+    <td><%=h list_stripes["nombre"] %></td>
+    <td><%=h list_stripes["apellido1"] %></td>
+    <td><%=h list_stripes["apellido2"] %></td>
+    <td><%=h list_stripes["tomo"] %></td>
+    <td><%=h list_stripes["acta"] %></td>
+    <td><%=h list_stripes["folio"] %></td>
+    <td><%=h Zona.find_by_id( list_stripes["zona_id"])['ubicacion'] %></td>
+    <td><%=h Zona.find_by_id( list_stripes["zona_id"])['barrio'] %></td>
+    <td><%= link_to 'Mostrar', :action => 'show',:tipoorden =>@tipoorden, :id => list_stripes %></td>
+    <td><%= link_to 'Editar', :action => 'edit', :tipoorden =>@tipoorden, :id => list_stripes %></td>
+    <td><%= link_to 'Eliminar', {:action => 'destroy', :id => list_stripes}, :confirm => "¿Está Vd. seguro?" %></td>
+  </tr>

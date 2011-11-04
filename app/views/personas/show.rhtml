@@ -1,0 +1,25 @@
+<h1>Ficha</h1>
+<%= render :partial => "columnas" %>
+
+<div id="cuerpo">
+<br /><strong>Nombre:</strong> <%=h @persona.send('nombre') %>
+<br /><strong>Primer apellido:</strong> <%=h @persona.send('apellido1') %>
+<br /><strong>Segundo apellido:</strong> <%=h @persona.send('apellido2') %>
+<br /><strong>Tomo:</strong> <%=h @persona.send('tomo') %>
+<br /><strong>Folio:</strong> <%=h @persona.send('folio') %>
+<br /><strong>Acta:</strong> <%=h @persona.send('acta') %>
+<br /><strong>Observaciones:</strong> <%=h @persona.send('observaciones') %>
+<br /><strong>Zona:</strong><%=h @zona.send('ubicacion') %>
+<br /><strong>Creado en:</strong> <%=h @persona.send('created_at') %>
+<br /><strong>Actualizado en:</strong> <%=h @persona.send('updated_at') %>
+</div>
+<p><%= link_to 'Corregir', :action => 'edit', :id => @persona %> |
+<%= link_to 'Añadir otra persona', :action => 'rellena' %>
+<% if @ttipoorden=="ape"  %>
+  <%= link_to "Lista", {  :action => 'list', :page => @pagina } %> 
+<% elsif @ttipoorden=="tom"  %>
+  <%= link_to "Lista", {  :action => 'list_by_acta', :page => @pagina } %> 
+<% end %>
+<%= link_to 'Parecidos', :id => @persona.id,  :action => 'parecidos' %>
+
+<%= error_messages_for 'persona' %>
